@@ -218,7 +218,7 @@ int main(){
         	for(int i=0; i < 4; i++){
 
         		output >> temposerial;
-        		cout << temposerial << endl;
+        		//cout << temposerial << endl;
         		temposerial += temposerial;
         output.ignore(numeric_limits<streamsize>::max(),'\n');
         	output >> instance >> instance;	
@@ -230,7 +230,7 @@ int main(){
         output.ignore(numeric_limits<streamsize>::max(),'\n');
         
     }
-cout << temposerial << endl;
+// cout << temposerial << endl;
     //cout << temposerial <<  endl;
     output.seekg(0, output.end);
 	for(int i = 0; i < P; i++){
@@ -269,11 +269,11 @@ cout << temposerial << endl;
 	for(int i = 0; i < numPopulations; i++){
 		pthread_join(threads[i], (void **) &st);
 
-		cout << (int) st << endl;
+		// cout << (int) st << endl;
 	
 	}
 	gettimeofday(&tp, NULL);
-	cout << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << endl;
+	// cout << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << endl;
 	double tempoparalelo = ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms);
     output << "paralelo_pop " << "in" << P << " " << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << endl;
     cout << "Speedup: "<< temposerial / tempoparalelo << endl; 
