@@ -1,0 +1,12 @@
+[P - numero de pontos]
+[K - numero de clusters]
+[numPop - numero de populacoes] esse argumento soh tem em pop.cpp
+[x1, y1]
+[x2, y2]
+...
+[xP, yP]
+[generations]
+[mutationRate]
+[divRate - usado na diversidade]
+[multRate - multiplicador da populacao]
+
