@@ -22,19 +22,7 @@ sequencial:
 	./genetics_seq < in308
 	./genetics_seq < in401
 	./genetics_seq < in513
-	./genetics_seq < in308-1
-	./genetics_seq < in308-2
-	./genetics_seq < in308-3
-	./genetics_seq < in308-4
-	./genetics_seq < in401-1
-	./genetics_seq < in401-2
-	./genetics_seq < in401-3
-	./genetics_seq < in401-4
-	./genetics_seq < in513-1
-	./genetics_seq < in513-2
-	./genetics_seq < in513-3
-	./genetics_seq < in513-4
-
+	
 fitness: 
 	./genetics_fitness < in100
 	./genetics_fitness < in200

@@ -207,16 +207,24 @@ int main(){
     fstream output;
     output.open("output.dat",ios::out|ios::in|ios::app );
     
-    output.seekg(ios::beg);
-    for(int i=0; i < 5; i++)
-        output.ignore(numeric_limits<streamsize>::max(),'\n');
-    string lina, lina1, lina2;
+    scanf("%d %d", &P, &K);
+
+    cout << endl << "in" << P << "------- ------" << endl;
+    string in = "in" + to_string(P);
+    string instance;
     double temposerial;
-    output >> lina >> lina1 >> temposerial;
+    output.seekg(ios::beg);
+    //reading a sequential time
+    while(true){
+        output >> instance >> instance;
+        if(instance.compare(in)== 0 ) break;
+        output.ignore(numeric_limits<streamsize>::max(),'\n');
+        
+    }
+    output >> temposerial;
     cout << temposerial <<  endl;
     output.seekg(0, output.end);
-	scanf("%d %d", &P, &K);
-
+	
 	for(int i = 0; i < P; i++){
 		scanf("%d %d", &x, &y);
 
@@ -264,9 +272,10 @@ int main(){
 
 	gettimeofday(&tp, NULL);
 	cout << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << endl;
+     output << "paralelo_fitness " << "in" << P << " " << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << endl;
+     output.close();
 
-    output << "tempo final" << endl;
-	cout << bestSol << endl;
+	//cout << bestSol << endl;
 
 	return 0;
 }

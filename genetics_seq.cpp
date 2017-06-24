@@ -159,29 +159,35 @@ void diversifyPopulation(vector<vector<int> > &pop, double rate){
 }
 
 int main(){
-	int generations, P, x, y, sizePopulation, multSize, numPopulations, bestSol = INT_MAX;
-	double mutationRate, divRate;
+	int generations, P, x, y, sizePopulation,  numPopulations, bestSol = INT_MAX;
+	
 	vector<int> solution;
+    generations = 1000;
+    double mutationRate[4] = {0.5 , 1.0, 1.5, 2.0};
+    double divRate[4] = {0.01, 0.02, 0.03, 0.04};
+    int multSize[4] = {2, 3, 5, 7};
 
 
     ofstream  output;
     output.open("output.dat", ios_base::app);
 	scanf("%d %d", &P, &K);
 
-    cout << endl << "in" << P << "------- ------" << endl;
+
 	for(int i = 0; i < P; i++){
 		scanf("%d %d", &x, &y);
 
 		points.push_back(make_pair(x, y));
 	}
-
-	scanf("%d %lf %lf %d", &generations, &mutationRate, &divRate, &multSize);
+	//scanf("%d %lf %lf %d", &generations, &mutationRate, &divRate, &multSize);
 		generations = 10;
-	sizePopulation = ceil(log2(points.size())) * multSize;
+    
+    for (int i = 0; i < 4; i++){
+    cout << endl << "in" << P <<"-" << i << "------- ------" << endl;
+	sizePopulation = ceil(log2(points.size())) * multSize[i];
 
 	if(sizePopulation % 2 == 1) sizePopulation++;
 
-	mutationRate = mutationRate / (double) points.size();
+	mutationRate[i] = mutationRate[i] / (double) points.size();
 
 	struct timeval tp;
 	gettimeofday(&tp, NULL);
@@ -194,11 +200,11 @@ int main(){
 
 		vector<vector<int> > cross = crossover(parents);
 
-		mutation(cross, mutationRate);
+		mutation(cross, mutationRate[i]);
 
 		pop = selectPopulation(pop, cross);
 		
-		diversifyPopulation(pop, divRate);
+		diversifyPopulation(pop, divRate[i]);
 		
 		int idx = getBest(pop);
 	
@@ -216,8 +222,10 @@ int main(){
 	gettimeofday(&tp, NULL);
 	cout << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << endl;
 
-    output << "serial:" << "in" << P << " " << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << endl;
+    output << "serial " << "in" << P << "-" << i+1 << " "  << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << endl;
+    }
     output.close();
+
 	//cout << bestSol << endl;
 
 	return 0;

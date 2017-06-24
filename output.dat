@@ -1,16 +1,4 @@
-serial in100 92
-serial in200 327
-serial in308 504
-serial in401 683
-serial in513 2648
-serial in308 504
-serial in308 779
-serial in308 1261
-serial in308 1769
-serial in401 683
-serial in401 1352
-serial in401 1728
-serial in401 2392
-serial in513 2646
-serial in513 3942
-tempo final
+serial in100-1 101
+serial in100-2 119
+serial in100-3 183
+serial in100-4 254
