@@ -163,8 +163,12 @@ int main(){
 	double mutationRate, divRate;
 	vector<int> solution;
 
+
+    ofstream  output;
+    output.open("output.dat", ios_base::app);
 	scanf("%d %d", &P, &K);
 
+    cout << endl << "in" << P << "------- ------" << endl;
 	for(int i = 0; i < P; i++){
 		scanf("%d %d", &x, &y);
 
@@ -172,7 +176,7 @@ int main(){
 	}
 
 	scanf("%d %lf %lf %d", &generations, &mutationRate, &divRate, &multSize);
-		
+		generations = 10;
 	sizePopulation = ceil(log2(points.size())) * multSize;
 
 	if(sizePopulation % 2 == 1) sizePopulation++;
@@ -212,7 +216,9 @@ int main(){
 	gettimeofday(&tp, NULL);
 	cout << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << endl;
 
-	cout << bestSol << endl;
+    output << "serial:" << "in" << P << " " << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << endl;
+    output.close();
+	//cout << bestSol << endl;
 
 	return 0;
 }

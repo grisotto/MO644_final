@@ -204,6 +204,17 @@ int main(){
 	double mutationRate, divRate;
 	vector<int> solution;
 	
+    fstream output;
+    output.open("output.dat",ios::out|ios::in|ios::app );
+    
+    output.seekg(ios::beg);
+    for(int i=0; i < 5; i++)
+        output.ignore(numeric_limits<streamsize>::max(),'\n');
+    string lina, lina1, lina2;
+    double temposerial;
+    output >> lina >> lina1 >> temposerial;
+    cout << temposerial <<  endl;
+    output.seekg(0, output.end);
 	scanf("%d %d", &P, &K);
 
 	for(int i = 0; i < P; i++){
@@ -254,6 +265,7 @@ int main(){
 	gettimeofday(&tp, NULL);
 	cout << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << endl;
 
+    output << "tempo final" << endl;
 	cout << bestSol << endl;
 
 	return 0;

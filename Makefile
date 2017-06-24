@@ -14,10 +14,10 @@ compile:
 	$(CC) $(LDFLAGS) genetics_selection.cpp -o genetics_selection 
 
 
-run: seq fitness selection pop 
+run: sequencial fitness selection pop 
 
-seq: 
-	./genetics_seq < in10
+sequencial: 
+	./genetics_seq < in100
 	./genetics_seq < in200
 	./genetics_seq < in308
 	./genetics_seq < in401
@@ -58,7 +58,7 @@ pop:
 	./genetics_pop < in513pop
 
 clean:
-	rm -f *.o $(TARGET) output.dat timeseq.txt
+	rm -f *.o $(TARGET) output.dat 
 	
 
 
