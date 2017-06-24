@@ -1,6 +1,7 @@
 #include <pthread.h>
+#include <sys/time.h>
 #include <bits/stdc++.h>
-#define NUM_THREADS 1
+#define NUM_THREADS 4
 
 using namespace std;
 
@@ -199,15 +200,48 @@ int main(){
 	int generations, P, x, y, sizePopulation, multSize, numPopulations;
 	double mutationRate, bestSol = DBL_MAX, divRate;
 	vector<int> solution;
-
+ 	
+ 	fstream output;
+    output.open("output.dat",ios::out|ios::in|ios::app );
+    
 	scanf("%d %d %d", &P, &K, &numPopulations);
 
+	cout << endl << "in" << P << "------- ------" << endl;
+    string in = "in" + to_string(P) + "-1";
+    string instance;
+    double temposerial;
+    output.seekg(ios::beg);
+    //reading a sequential time
+     while(true){
+        output >> instance >> instance;
+        if(instance.compare(in)== 0 ){ 
+        	for(int i=0; i < 4; i++){
+
+        		output >> temposerial;
+        		cout << temposerial << endl;
+        		temposerial += temposerial;
+        output.ignore(numeric_limits<streamsize>::max(),'\n');
+        	output >> instance >> instance;	
+        	}
+        	break;
+        	
+        
+        }
+        output.ignore(numeric_limits<streamsize>::max(),'\n');
+        
+    }
+cout << temposerial << endl;
+    //cout << temposerial <<  endl;
+    output.seekg(0, output.end);
 	for(int i = 0; i < P; i++){
 		scanf("%d %d", &x, &y);
 
 		points.push_back(make_pair(x, y));
 	}
 
+	struct timeval tp;
+	gettimeofday(&tp, NULL);
+	long int ms = tp.tv_sec * 1000 + tp.tv_usec / 1000;
 	pthread_t threads[numPopulations];
 
 	for(int i = 0; i < numPopulations; i++){
@@ -236,7 +270,15 @@ int main(){
 		pthread_join(threads[i], (void **) &st);
 
 		cout << (int) st << endl;
+	
 	}
+	gettimeofday(&tp, NULL);
+	cout << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << endl;
+	double tempoparalelo = ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms);
+    output << "paralelo_pop " << "in" << P << " " << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << endl;
+    cout << "Speedup: "<< temposerial / tempoparalelo << endl; 
+    output.close();
+
 
 	return 0;
 }
