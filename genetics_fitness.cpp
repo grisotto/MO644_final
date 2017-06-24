@@ -1,7 +1,7 @@
 #include <pthread.h>
 #include <sys/time.h>
 #include <bits/stdc++.h>
-#define NUM_THREADS 2
+#define NUM_THREADS 8
 
 using namespace std;
 
@@ -210,7 +210,7 @@ int main(){
     scanf("%d %d", &P, &K);
 
     cout << endl << "in" << P << "------- ------" << endl;
-    string in = "in" + to_string(P);
+    string in = "in" + to_string(P) + "-1";
     string instance;
     double temposerial;
     output.seekg(ios::beg);
@@ -222,7 +222,7 @@ int main(){
         
     }
     output >> temposerial;
-    cout << temposerial <<  endl;
+    //cout << temposerial <<  endl;
     output.seekg(0, output.end);
 	
 	for(int i = 0; i < P; i++){
@@ -272,7 +272,9 @@ int main(){
 
 	gettimeofday(&tp, NULL);
 	cout << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << endl;
+	double tempoparalelo = ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms);
      output << "paralelo_fitness " << "in" << P << " " << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << endl;
+     cout << "Speedup: "<< temposerial / tempoparalelo << endl; 
      output.close();
 
 	//cout << bestSol << endl;

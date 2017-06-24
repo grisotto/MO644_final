@@ -1,6 +1,7 @@
 #include <pthread.h>
+#include <sys/time.h>
 #include <bits/stdc++.h>
-#define NUM_THREADS 2
+#define NUM_THREADS 8
 
 using namespace std;
 
@@ -196,7 +197,26 @@ int main(){
 	double mutationRate, divRate;
 	vector<int> solution;
 	
+	fstream output;
+    output.open("output.dat",ios::out|ios::in|ios::app );
+    
 	scanf("%d %d", &P, &K);
+
+	cout << endl << "in" << P << "------- ------" << endl;
+    string in = "in" + to_string(P) + "-1";
+    string instance;
+    double temposerial;
+    output.seekg(ios::beg);
+    //reading a sequential time
+    while(true){
+        output >> instance >> instance;
+        if(instance.compare(in)== 0 ) break;
+        output.ignore(numeric_limits<streamsize>::max(),'\n');
+        
+    }
+    output >> temposerial;
+    //cout << temposerial <<  endl;
+    output.seekg(0, output.end);
 
 	for(int i = 0; i < P; i++){
 		scanf("%d %d", &x, &y);
@@ -212,6 +232,9 @@ int main(){
 	if(sizePopulation % 2 == 1) sizePopulation++;
 
 	mutationRate = mutationRate / (double) points.size();
+	struct timeval tp;
+	gettimeofday(&tp, NULL);
+	long int ms = tp.tv_sec * 1000 + tp.tv_usec / 1000;
 
 	vector<vector<int> > pop = initialPopulation(sizePopulation, P);
 
@@ -231,13 +254,19 @@ int main(){
 		if(bestSol > fitness(pop[idx])){
 			bestSol = fitness(pop[idx]);
 		
-			printf("Iter: %d, Sol: %d\n", i, bestSol);
+			// printf("Iter: %d, Sol: %d\n", i, bestSol);
 
-			for(int j = 0; j < pop[idx].size(); j++)
-				cout << pop[idx][j] << " ";
-			cout << endl;
+			// for(int j = 0; j < pop[idx].size(); j++)
+			// 	cout << pop[idx][j] << " ";
+			// cout << endl;
 		}
 	}
 
+	gettimeofday(&tp, NULL);
+	cout << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << endl;
+	double tempoparalelo = ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms);
+     output << "paralelo_selection " << "in" << P << " " << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << endl;
+     cout << "Speedup: "<< temposerial / tempoparalelo << endl; 
+     output.close();
 	return 0;
 }

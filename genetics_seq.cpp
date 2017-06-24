@@ -182,7 +182,7 @@ int main(){
 		generations = 10;
     
     for (int i = 0; i < 4; i++){
-    cout << endl << "in" << P <<"-" << i << "------- ------" << endl;
+    cout << endl << "in" << P <<"-" << i+1 << "------- ------" << endl;
 	sizePopulation = ceil(log2(points.size())) * multSize[i];
 
 	if(sizePopulation % 2 == 1) sizePopulation++;
