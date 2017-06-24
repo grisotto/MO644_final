@@ -17,33 +17,33 @@ compile:
 run: sequencial fitness selection pop 
 
 sequencial: 
-	./genetics_seq < in100
-	./genetics_seq < in200
-	./genetics_seq < in308
-	./genetics_seq < in401
-	./genetics_seq < in513
+	./genetics_seq < ./input/in100
+	./genetics_seq < ./input/in200
+	./genetics_seq < ./input/in308
+	./genetics_seq < ./input/in401
+	./genetics_seq < ./input/in513
 	
 fitness: 
-	./genetics_fitness < in100
-	./genetics_fitness < in200
-	./genetics_fitness < in308
-	./genetics_fitness < in401
-	./genetics_fitness < in513
+	./genetics_fitness < ./input/in100
+	./genetics_fitness < ./input/in200
+	./genetics_fitness < ./input/in308
+	./genetics_fitness < ./input/in401
+	./genetics_fitness < ./input/in513
 
 
 selection:
-	./genetics_selection < in100
-	./genetics_selection < in200
-	./genetics_selection < in308
-	./genetics_selection < in401
-	./genetics_selection < in513
+	./genetics_selection < ./input/in100
+	./genetics_selection < ./input/in200
+	./genetics_selection < ./input/in308
+	./genetics_selection < ./input/in401
+	./genetics_selection < ./input/in513
 
 
 
 pop:
-	./genetics_pop < in308pop
-	./genetics_pop < in401pop
-	./genetics_pop < in513pop
+	./genetics_pop < ./input/in308pop
+	./genetics_pop < ./input/in401pop
+	./genetics_pop < ./input/in513pop
 
 clean:
 	rm -f *.o $(TARGET) output.dat 
