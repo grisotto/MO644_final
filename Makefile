@@ -35,7 +35,6 @@ seq:
 	./genetics_seq < in513-3
 	./genetics_seq < in513-4
 
-
 fitness: 
 	./genetics_fitness < in100
 	./genetics_fitness < in200
@@ -59,7 +58,7 @@ pop:
 	./genetics_pop < in513pop
 
 clean:
-	rm -f *.o $(TARGET) output.txt
+	rm -f *.o $(TARGET) output.dat timeseq.txt
 	
 
 

@@ -163,8 +163,12 @@ int main(){
 	double mutationRate, divRate;
 	vector<int> solution;
 
+    ofstream timeseq, output;
+    timeseq.open("timeseq.txt", ios_base::app);
+    timeseq << "arroz";
 	scanf("%d %d", &P, &K);
 
+    timeseq << P << endl;
     cout <<endl << "in" << P << " ------- ------" << endl;
 	for(int i = 0; i < P; i++){
 		scanf("%d %d", &x, &y);
