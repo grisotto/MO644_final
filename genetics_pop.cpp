@@ -246,7 +246,7 @@ int main(){
 
 	for(int i = 0; i < numPopulations; i++){
 		scanf("%d %lf %lf %d", &generations, &mutationRate, &divRate, &multSize);
-        generations = 10;
+        //generations = 10;
 		
 		sizePopulation = ceil(log2(points.size())) * multSize;
 
