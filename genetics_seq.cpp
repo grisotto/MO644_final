@@ -179,7 +179,7 @@ int main(){
 		points.push_back(make_pair(x, y));
 	}
 	//scanf("%d %lf %lf %d", &generations, &mutationRate, &divRate, &multSize);
-		generations = 10;
+		//generations = 10;
     
     for (int i = 0; i < 4; i++){
     cout << endl << "in" << P <<"-" << i+1 << "------- ------" << endl;
@@ -195,7 +195,7 @@ int main(){
 
 	vector<vector<int> > pop = initialPopulation(sizePopulation, P);
 
-	for(int i = 0; i < generations; i++){
+	for(int ii = 0; ii < generations; ii++){
 		vector<vector<int> > parents = selection(pop);
 
 		vector<vector<int> > cross = crossover(parents);
