@@ -1,7 +1,7 @@
 #include <pthread.h>
 #include <sys/time.h>
 #include <bits/stdc++.h>
-#define NUM_THREADS 8
+#define NUM_THREADS 20
 
 using namespace std;
 
