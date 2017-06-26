@@ -274,7 +274,7 @@ int main(){
 	//cout << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << endl;
 	double tempoparalelo = ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms);
      output << "paralelo_fitness " << "in" << P << " " << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << " speedup " << temposerial / tempoparalelo <<  endl;
-     cout << "Speedup: "<< temposerial / tempoparalelo << endl; 
+     //cout << "Speedup: "<< temposerial / tempoparalelo << endl; 
      output.close();
 
 	//cout << bestSol << endl;

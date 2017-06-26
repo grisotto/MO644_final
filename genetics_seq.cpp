@@ -220,7 +220,7 @@ int main(){
 	}
 
 	gettimeofday(&tp, NULL);
-	cout << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << endl;
+	//cout << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << endl;
 
     output << "serial " << "in" << P << "-" << i+1 << " "  << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << endl;
     }
