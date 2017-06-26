@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
 CC= g++
-LDFLAGS= -pthread
+LDFLAGS= -pthread -std=c++11
 TARGET=genetics_seq genetics_fitness genetics_selection genetics_pop
 
 
