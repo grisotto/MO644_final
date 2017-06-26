@@ -215,7 +215,7 @@ int main(){
      while(true){
         output >> instance >> instance;
         if(instance.compare(in)== 0 ){ 
-        	for(int i=0; i < 4; i++){
+        	for(int i=0; i < numPopulations; i++){
 
         		output >> temposerial;
         		//cout << temposerial << endl;
