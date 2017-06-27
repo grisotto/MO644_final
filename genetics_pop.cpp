@@ -201,12 +201,14 @@ int main(){
 	double mutationRate, bestSol = DBL_MAX, divRate;
 	vector<int> solution;
  	
- 	fstream output;
-    output.open("output.dat",ios::out|ios::in|ios::app );
+ 	fstream output, output2;
+    output.open("times.dat",ios::out|ios::in|ios::app );
+    output2.open("output.dat",ios::app );
     
 	scanf("%d %d %d", &P, &K, &numPopulations);
 
 	cout << endl << "in" << P << "------- ------" << endl;
+	output2<< endl << "in" << P << "------- ------" << endl;
     string in = "in" + to_string(P) + "-1";
     string instance;
     double temposerial;
@@ -246,7 +248,7 @@ int main(){
 
 	for(int i = 0; i < numPopulations; i++){
 		scanf("%d %lf %lf %d", &generations, &mutationRate, &divRate, &multSize);
-        //generations = 10;
+        generations = 10;
 		
 		sizePopulation = ceil(log2(points.size())) * multSize;
 
@@ -275,8 +277,12 @@ int main(){
 	gettimeofday(&tp, NULL);
 	// cout << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << endl;
 	double tempoparalelo = ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms);
+    cout << bestSol << endl;
+    output2<< bestSol << endl;
+
     output << "paralelo_pop " << "in" << P << " " << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << " speedup " << temposerial / tempoparalelo << endl;
-    //cout << "Speedup: "<< temposerial / tempoparalelo << endl; 
+    cout << endl << "Speedup: "<< temposerial / tempoparalelo << endl; 
+    output2<< endl << "Speedup: "<< temposerial / tempoparalelo << endl; 
     output.close();
 
 

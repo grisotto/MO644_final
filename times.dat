@@ -1,0 +1,33 @@
+serial in100-1 94
+serial in100-2 115
+serial in100-3 184
+serial in100-4 254
+serial in200-1 326
+serial in200-2 481
+serial in200-3 801
+serial in200-4 1121
+serial in308-1 508
+serial in308-2 782
+serial in308-3 1267
+serial in308-4 1766
+serial in401-1 689
+serial in401-2 1046
+serial in401-3 1774
+serial in401-4 2483
+serial in513-1 2672
+serial in513-2 3978
+serial in513-3 6581
+serial in513-4 9176
+paralelo_fitness in100 135 speedup 0.696296
+paralelo_fitness in200 292 speedup 1.11644
+paralelo_fitness in308 384 speedup 1.32292
+paralelo_fitness in401 503 speedup 1.36978
+paralelo_fitness in513 1684 speedup 1.5867
+paralelo_selection in100 75 speedup 1.25333
+paralelo_selection in200 285 speedup 1.14386
+paralelo_selection in308 435 speedup 1.16782
+paralelo_selection in401 588 speedup 1.17177
+paralelo_selection in513 2181 speedup 1.22513
+paralelo_pop in308 2285 speedup 1.54573
+paralelo_pop in401 3147 speedup 1.57801
+paralelo_pop in513 11565 speedup 1.58686

@@ -1,3 +1,4 @@
+ENTRADA:
 [P - numero de pontos]
 [K - numero de clusters]
 [numPop - numero de populacoes] esse argumento soh tem em pop.cpp
@@ -9,4 +10,7 @@
 [mutationRate]
 [divRate - usado na diversidade]
 [multRate - multiplicador da populacao]
+
+SAIDA:
+Eh a menor soma de distancias par a par dentro dos clusters, para todos os clusters.
 
