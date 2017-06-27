@@ -46,7 +46,6 @@ pop:
 	./genetics_pop < ./input/in513pop
 
 clean:
-	rm -f *.o $(TARGET) output.dat 
-	
+	rm -f *.o $(TARGET) output.dat times.dat	
 
 
