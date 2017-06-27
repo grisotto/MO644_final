@@ -223,8 +223,8 @@ int main(){
 
 	gettimeofday(&tp, NULL);
 	//cout << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << endl;
-    output2 << endl << bestSol << endl;
-        cout<< endl << bestSol << endl;
+    output2 << bestSol << endl;
+        cout<< bestSol << endl;
 
     output << "serial " << "in" << P << "-" << i+1 << " "  << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << endl;
     }

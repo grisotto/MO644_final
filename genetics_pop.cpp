@@ -271,14 +271,14 @@ int main(){
 	for(int i = 0; i < numPopulations; i++){
 		pthread_join(threads[i], (void **) &st);
 
-		// cout << (int) st << endl;
-	
+         cout << (int) st << endl;
+        output2 << (int) st << endl;	
 	}
 	gettimeofday(&tp, NULL);
 	// cout << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << endl;
 	double tempoparalelo = ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms);
-    cout << bestSol << endl;
-    output2<< bestSol << endl;
+    //cout << bestSol << endl;
+    //output2<< bestSol << endl;
 
     output << "paralelo_pop " << "in" << P << " " << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << " speedup " << temposerial / tempoparalelo << endl;
     cout << endl << "Speedup_pop: "<< temposerial / tempoparalelo << endl; 
