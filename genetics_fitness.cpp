@@ -235,7 +235,7 @@ int main(){
 
 	scanf("%d %lf %lf %d", &generations, &mutationRate, &divRate, &multSize);
 		
-   generations = 10;
+   generations = 100;
 	sizePopulation = ceil(log2(points.size())) * multSize;
 
 	if(sizePopulation % 2 == 1) sizePopulation++;
@@ -282,6 +282,7 @@ int main(){
      cout << endl<< "Speedup: "<< temposerial / tempoparalelo << endl; 
      output2 << endl<< "Speedup_fitness: "<< temposerial / tempoparalelo << endl; 
      output.close();
+     output2.close();
 
 	//cout << bestSol << endl;
 

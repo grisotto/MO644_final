@@ -248,7 +248,7 @@ int main(){
 
 	for(int i = 0; i < numPopulations; i++){
 		scanf("%d %lf %lf %d", &generations, &mutationRate, &divRate, &multSize);
-        generations = 10;
+        generations = 100;
 		
 		sizePopulation = ceil(log2(points.size())) * multSize;
 
@@ -281,10 +281,11 @@ int main(){
     output2<< bestSol << endl;
 
     output << "paralelo_pop " << "in" << P << " " << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << " speedup " << temposerial / tempoparalelo << endl;
-    cout << endl << "Speedup: "<< temposerial / tempoparalelo << endl; 
-    output2<< endl << "Speedup: "<< temposerial / tempoparalelo << endl; 
+    cout << endl << "Speedup_pop: "<< temposerial / tempoparalelo << endl; 
+    output2<< endl << "Speedup_pop: "<< temposerial / tempoparalelo << endl; 
     output.close();
 
+    output2.close();
 
 	return 0;
 }

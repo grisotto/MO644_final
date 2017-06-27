@@ -180,7 +180,7 @@ int main(){
 		points.push_back(make_pair(x, y));
 	}
 	//scanf("%d %lf %lf %d", &generations, &mutationRate, &divRate, &multSize);
-        generations = 10;
+        generations = 100;
     
     for (int i = 0; i < 4; i++){
     cout << endl << "in" << P <<"-" << i+1 << "------- ------" << endl;
@@ -224,10 +224,12 @@ int main(){
 	gettimeofday(&tp, NULL);
 	//cout << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << endl;
     output2 << endl << bestSol << endl;
+        cout<< endl << bestSol << endl;
 
     output << "serial " << "in" << P << "-" << i+1 << " "  << ((tp.tv_sec * 1000 + tp.tv_usec / 1000) - ms) << endl;
     }
     output.close();
+    output2.close();
 
 	//cout << bestSol << endl;
 
