@@ -197,6 +197,7 @@ int main(){
 	double mutationRate, divRate;
 	vector<int> solution;
 	
+    srand(0);
 	fstream output, output2;
     output.open("times.dat",ios::out|ios::in|ios::app );
     
@@ -228,7 +229,7 @@ int main(){
 
 	scanf("%d %lf %lf %d", &generations, &mutationRate, &divRate, &multSize);
 		
-    generations = 100;
+    //generations = 100;
 	sizePopulation = ceil(log2(points.size())) * multSize;
 
 	if(sizePopulation % 2 == 1) sizePopulation++;

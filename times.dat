@@ -95,3 +95,4 @@ paralelo_selection in308 4231 speedup 0.120066
 paralelo_selection in401 5718 speedup 0.120497
 paralelo_selection in513 21906 speedup 0.121976
 paralelo_pop in308 22491 speedup 0.157041
+serial in100-1 722

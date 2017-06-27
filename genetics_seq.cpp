@@ -180,7 +180,7 @@ int main(){
 		points.push_back(make_pair(x, y));
 	}
 	//scanf("%d %lf %lf %d", &generations, &mutationRate, &divRate, &multSize);
-        generations = 100;
+        //generations = 100;
     
     for (int i = 0; i < 4; i++){
     cout << endl << "in" << P <<"-" << i+1 << "------- ------" << endl;
